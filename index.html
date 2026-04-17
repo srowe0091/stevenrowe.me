@@ -1,74 +1,615 @@
 <!doctype html>
 <html lang="en">
-   <head>
-      <title>Steven Rowe</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
-      <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steven Rowe — Portfolio</title>
 
-      <style>
-        * {
-          margin: 0;
-          padding: 0;
-          font-family: 'Raleway', sans-serif;
-        }
-        html, body {
-          height: 100%;
-        }
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <input type="checkbox" id="theme-toggle" aria-label="Toggle light mode" />
+    <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation" />
 
-        body {
-          background: #65a1a0;
-          background: -moz-linear-gradient(45deg, #65a1a0 0%, #61c783 100%);
-          background: -webkit-linear-gradient(45deg, #65a1a0 0%,#61c783 100%);
-          background: linear-gradient(45deg, #65a1a0 0%,#61c783 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65a1a0', endColorstr='#61c783',GradientType=1 );
+    <!-- Animated background blobs -->
+    <div class="blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-        }
-
-        h1 {
-          color: white;
-          text-align: center;
-          margin-bottom: 1.5rem;
-        }
-
-        p {
-          color: white;
-        }
-
-        .me {
-          width: 200px;
-          height: 200px;
-          margin-bottom: 3rem;
-          border-radius: 50%;
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-image: url('me.jpg');
-
-          -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,1);
-          -moz-box-shadow: 0px 0px 20px 0px rgba(255,255,255,1);
-          box-shadow: 0px 0px 20px 0px rgba(255,255,255,1);
-        }
-
-        .construction {
-          display: flex;
-          align-items: center;
-        }
-
-        img {
-          height: 50px;
-        }
-      </style>
-   </head>
-   <body>
-      <h1>Steven Rowe</h1>
-      <div class="me"></div>
-      <div class="construction">
-        <img src="construction.png" />
-        <p>.me profile under construction :)</p>
+    <nav>
+      <div class="nav-container">
+        <div class="nav-logo">Steven Rowe</div>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <label for="theme-toggle" class="theme-btn" title="Toggle theme">
+            <span class="theme-icon theme-btn-sun">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="5" fill="#FFD700" />
+                <g
+                  fill="#FFA500"
+                  stroke="#FFA500"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                >
+                  <line x1="12" y1="1.5" x2="12" y2="4" />
+                  <line x1="12" y1="20" x2="12" y2="22.5" />
+                  <line x1="1.5" y1="12" x2="4" y2="12" />
+                  <line x1="20" y1="12" x2="22.5" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.2" y2="6.2" />
+                  <line x1="17.8" y1="17.8" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.8" y2="6.2" />
+                  <line x1="6.2" y1="17.8" x2="4.4" y2="19.6" />
+                </g>
+              </svg>
+            </span>
+            <span class="theme-icon theme-btn-moon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient
+                    id="moonGrad"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" stop-color="#C8AAFF" />
+                    <stop offset="100%" stop-color="#7EC8FF" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                  fill="url(#moonGrad)"
+                />
+              </svg>
+            </span>
+          </label>
+          <label
+            for="nav-toggle"
+            class="hamburger"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
       </div>
-   </body>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <h1>
+        Hi, I'm <span class="accent">Steven Rowe</span>.<br />I build things for
+        the web.
+      </h1>
+
+      <p class="hero-subtitle">
+        I am a Senior Software Engineer and Technical Lead with over a decade of
+        experience in delivering robust solutions within the TypeScript and
+        Node.js ecosystem. Driving business value through scalable architecture
+        and the mentorship of high-performing teams. Ensuring technical
+        decisions align with long-term product goals and operational efficiency
+        throughout the entire organization.
+      </p>
+      <div class="hero-links">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <p>
+          Being a Software Engineer at heart, I find genuine joy when projects
+          come to life and are working as planned. I am a goal-oriented
+          self-motivator and a dedicated team player who thrives in
+          collaborative environments where the shared energy of a team brings a
+          vision to life. My skills do not end at the code, they extend beyond
+          to help others. I strive to make the work for everyone around me
+          easier, because no one likes the stress and wasting time, so I
+          eliminate those wasted hours with automation.
+        </p>
+        <p>
+          Beyond the code, I'm a space enthusiasts that can stare into the night
+          sky for hours and talk about the wonders of space and just how small
+          we are in this universe. When I'm not at my desk, or staring into
+          space, I like to play a card game called Magic The Gathering and
+          building decks. There's a certain thrill when you're playing a deck
+          and it's working the way you intended it to be played.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        A selection of things I've built and are being self hosted in my homelab
+      </p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="media/mtg-3.png" alt="Project 1 screenshot" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Magic: The Cataloger</h3>
+            <p class="project-description">
+              An application that helps me organize and keep track of my cards.
+              You can also build decks and view the stats and cost for your deck
+              to see what needs improving.
+
+              <br />
+              <br />
+              <i
+                >if you would like a demo, send me a message and I'll get you
+                setup</i
+              >
+            </p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Node.js (Express)</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Mobile friendly</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://mtg.horizonlab.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Live Demo →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="media/finance-1.png" alt="Project 1 screenshot" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Finance Tracker</h3>
+            <p class="project-description">
+              This helps me keep track of the numerous credit cards my family
+              uses. At a quick glance, I am able to know how much money has been
+              spent and where and how much money we have left in the budget.
+            </p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">PocketBase</span>
+              <span class="tag">PWA</span>
+              <span class="tag">Mobile first</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- <div class="project-image">
+            <img src="media/finance-1.png" alt="Project 1 screenshot" />
+          </div> -->
+          <div class="project-body">
+            <h3 class="project-title">HomeLab</h3>
+            <p class="project-description">
+              I created a homelab server to learn about Infrastructure and VMs.
+              I have also introduced a NAS for storage, so now I have my own
+              private cloud that I can access from anywhere in the world. I also
+              have my own local AI model running in a VM. Now I have my own
+              personal "ChatGPT" locally, accessible to me anywhere and all data
+              stays with me.
+            </p>
+            <div class="project-tags">
+              <span class="tag">ProxMox</span>
+              <span class="tag">NAS</span>
+              <span class="tag">Ubuntu Server</span>
+              <span class="tag">Raspberry Pi</span>
+              <span class="tag">TailScale</span>
+              <span class="tag">Local LLM Ai</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume">
+      <h2 class="section-title">Resume</h2>
+      <p class="section-subtitle">Experience, education, and skills</p>
+
+      <div class="resume">
+        <div class="resume-header">
+          <h3>Steven Rowe</h3>
+          <div class="title">Senior Software Engineer | Teach Lead</div>
+          <div class="resume-contact">
+            <a href="mailto:contact@stevenrowe.me" class="resume-contact-link">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+              contact@stevenrowe.me
+            </a>
+            <span class="resume-contact-link">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              South Florida, USA
+            </span>
+            <a
+              href="https://www.linkedin.com/in/steven-rowe-a39599120"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="resume-contact-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+              linkedin.com
+            </a>
+            <a
+              href="https://www.github.com/srowe0091"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="resume-contact-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
+              github.com
+            </a>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <div class="resume-section-title">Experience</div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div class="resume-item-title">
+                Full Stack Engineer (Tech lead)
+              </div>
+              <div class="resume-item-date">Feb 2024 - April 2026</div>
+            </div>
+            <div class="resume-item-subtitle">
+              WealthCentral · Miami, FL (Remote)
+            </div>
+            <div class="resume-item-description">
+              <ul>
+                <li>
+                  <b>Strategic UI Ownership:</b> Spearheaded the greenfield
+                  development of a flagship wealth management platform, moving
+                  from Figma concept to production-ready enterprise application
+                  in under 12 months.
+                </li>
+                <li>
+                  <b>Architectural Influence:</b> Brainstormed with leadership
+                  to define technical roadmaps, prioritizing high-ROI features
+                  and sustainable trustworthy architectural decisions.
+                </li>
+                <li>
+                  <b>Strategic Prioritization:</b> Acted as the primary bridge
+                  between the engineering team and stakeholders to ensure
+                  technical constraints were voiced early during product roadmap
+                  sessions.
+                </li>
+                <li>
+                  <b>Quality & Observability:</b> Established a testing culture,
+                  achieving 98% unit test coverage with Jest to ensure stability
+                  and reliability.
+                </li>
+                <li>
+                  <b>Infrastructure-as-Code:</b> Streamlined the development
+                  lifecycle and production releases by managing AWS
+                  infrastructure via Terraform and optimizing CI/CD pipelines
+                  via GitHub Actions.
+                </li>
+                <li>
+                  <b>Security & Performance:</b> Championed a security first
+                  culture, managing dependency vulnerabilities to mitigate
+                  technical debt to be pro-active rather than reactive to
+                  issues.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div class="resume-item-title">
+                Full Stack Engineer (Tech lead)
+              </div>
+              <div class="resume-item-date">May 2022 - December 2023</div>
+            </div>
+            <div class="resume-item-subtitle">FNZ - London (Remote)</div>
+            <div class="resume-item-description">
+              <ul>
+                <li>
+                  <b>Legacy Modernization:</b> Led the comprehensive
+                  architectural rewrite of a legacy B2B investment platform into
+                  a modern React/Next.js and GraphQL stack.
+                </li>
+                <li>
+                  <b>Design System Contribution:</b> Developed and maintained a
+                  multi-tenant component library that enabled seamless
+                  white-labeling and theming, directly improving frontend
+                  developer velocity.
+                </li>
+                <li>
+                  <b>Operational Automation:</b> Identified and enhanced
+                  development bottlenecks reclaiming approximately hundreds of
+                  engineering/operational hours per week.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div class="resume-item-title">
+                Software Engineer III (Tech lead)
+              </div>
+              <div class="resume-item-date">Mar 2021 - May 2022</div>
+            </div>
+            <div class="resume-item-subtitle">
+              Availity - Jacksonville, Fl (Remote)
+            </div>
+            <div class="resume-item-description">
+              <ul>
+                <li>
+                  <b>Framework Innovation:</b> Engineered a fully dynamic,
+                  data-driven form generation framework capable of rendering
+                  complex schemas and validation for 200+ fields, significantly
+                  reducing time-to-market for new healthcare products.
+                </li>
+                <li>
+                  <b>Systems Thinking:</b> Scaled internal tooling by creating a
+                  modern component library that was adopted as the standard
+                  across the entire organization to work cross-functionally and
+                  keep a consistent look and feel for every application.
+                </li>
+                <li>
+                  <b>UX Collaboration:</b> Acted as the primary technical
+                  advisor for design decisions, ensuring technical feasibility
+                  without compromising user experience.
+                </li>
+                <li>
+                  <b>Accessibility (a11y) Advocacy:</b> Spearheaded an
+                  initiative to ensure the new UI framework met WCAG standards,
+                  expanding the product's reach to users with assistive
+                  technologies.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div class="resume-item-title">
+                Full Stack Engineer (Tech lead)
+              </div>
+              <div class="resume-item-date">Oct 2018 - Mar-2021</div>
+            </div>
+            <div class="resume-item-subtitle">
+              Censia - San Francisco, California (Remote)
+            </div>
+            <div class="resume-item-description">
+              <ul>
+                <li>
+                  <b>High-Scale Data User Interfaces:</b> Optimized a
+                  Material-UI based application to handle and display search
+                  results across millions of records with millisecond latency
+                  using ElasticSearch.
+                </li>
+                <li>
+                  <b>Middleware Excellence:</b> Designed a middle-tier GraphQL
+                  orchestration layer in Node.js to aggregate data from
+                  fragmented backend microservices into a unified UI consumption
+                  point.
+                </li>
+                <li>
+                  <b>Cross-Functional Leadership:</b> Led daily Scrum ceremonies
+                  and authored technical designs/UML diagrams to align
+                  stakeholders on complex full-stack changes.
+                </li>
+                <li>
+                  <b>Product Impact:</b> Independently prototyped and launched a
+                  COVID-19 worker-matching portal in under 6 weeks,
+                  demonstrating the required work to meet urgent market needs.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div class="resume-item-title">Software Engineer 1</div>
+              <div class="resume-item-date">Feb 2016 - Oct 2018</div>
+            </div>
+            <div class="resume-item-subtitle">Sunrise, FL</div>
+            <div class="resume-item-description">
+              <ul>
+                <li>
+                  <b>International Collaboration:</b> Worked with international
+                  teams to meet company goals and requirements.
+                </li>
+                <li>
+                  <b>Micro-Frontend Architecture:</b> Developed a custom
+                  framework for dynamically injecting "mini-apps" into a host
+                  application based on user permissions and package levels.
+                </li>
+                <li>
+                  <b>Internationalization (i18n):</b> Led the localizing and
+                  internationalization effort for global enterprise customers,
+                  managing complex date, currency, and language formatting.
+                </li>
+                <li>
+                  <b>Modularization:</b> the main application to be a host that
+                  was usable for any developer and allowed for custom mini apps
+                  to be created and ran.
+                </li>
+                <li>
+                  <b>Operational Automation:</b> Created a system that managed
+                  development environments using Docker, that boosted
+                  loading/deployment times significantly and was easily
+                  accessible through a web browser
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <div class="resume-section-title">Education</div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div class="resume-item-title">
+                Bachelors Degree — Computer Science
+              </div>
+              <div class="resume-item-date">2012 — 2016</div>
+            </div>
+            <div class="resume-item-subtitle">
+              Florida International University (FIU) · Miami, FL
+            </div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div class="resume-item-title">Associate in Arts Degree</div>
+              <div class="resume-item-date">2009 — 2011</div>
+            </div>
+            <div class="resume-item-subtitle">
+              Florida State College of Jacksonville · Jacksonville, FL
+            </div>
+            <div class="resume-item-description">
+              Started working towards Mechanical Engineering Degree
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <div class="resume-section-title">Skills</div>
+          <div class="skills-grid">
+            <div class="skills-group">
+              <h4>Languages</h4>
+              <div class="skills-list">
+                JavaScript, TypeScript, Python (minor), Java (minor), SQL
+              </div>
+            </div>
+            <div class="skills-group">
+              <h4>Frontend</h4>
+              <div class="skills-list">
+                React, Next.js (SSR), GraphQL, Material UI, Tailwind, Vite,
+                Storybook.
+              </div>
+            </div>
+            <div class="skills-group">
+              <h4>Backend & Data</h4>
+              <div class="skills-list">
+                Node.js (tRPC/Express), Rest APIs, GraphQL, PostgreSQL, MongoDB,
+                Redis, DynamoDB, ElasticSearch
+              </div>
+            </div>
+            <div class="skills-group">
+              <h4>Infrastructure & DevOps</h4>
+              <div class="skills-list">
+                AWS, Docker, Terraform, CI/CD (GitHub Actions, CircleCI), Auth0,
+                Supabase, Auditing
+              </div>
+            </div>
+            <div class="skills-group">
+              <h4>Tools</h4>
+              <div class="skills-list">
+                ChatGPT, Claude Code (Ai), Jest (Unit Testing), Cypress (E2E),
+                UI/UX Design
+              </div>
+            </div>
+            <div class="skills-group">
+              <h4>Certifications</h4>
+              <div class="skills-list">OSCP (in progress)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2>Let's get connected!</h2>
+      <p>
+        I'm always open to new opportunities and interesting conversations. Feel
+        free to reach out.
+      </p>
+      <a href="mailto:contact@stevenrowe.me" class="btn btn-primary"
+        >Say Hello</a
+      >
+    </section>
+
+    <footer>© 2026 Steven Rowe. Built by me, hosted by me :)</footer>
+    <script>
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          document.getElementById("nav-toggle").checked = false;
+        });
+      });
+    </script>
+  </body>
 </html>
